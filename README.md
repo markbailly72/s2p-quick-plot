@@ -5,6 +5,10 @@ You can view the help page [Here](https://poormantronics.com/quickplot-help.html
 ## Directions
 1. Dowload or clone the repository.
 2. Add electron and electron-builder modules:
-'''
+```
 yarn add electron electron-builder --dev
-'''
+```
+3. Add the mathjs module:
+```
+yarn add mathjs
+```
