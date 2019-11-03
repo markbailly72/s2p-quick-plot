@@ -16,3 +16,5 @@ yarn add mathjs
 ```
 yarn start
 ```
+## Notes
+The electron builder will build a windows app.
