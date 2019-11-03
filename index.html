@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>S-Parameters Quick Plot</title>
+    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script>if (window.module) module = window.module;</script>
+    <style>
+      {
+        background:#0000ff;
+      }
+      </style>
+
+  </head>
+  <body>
+  <div class="container">
+    <h1>Plot RF Network Parameters</h1>
+    <!-- All of the Node.js APIs are available in this renderer process. -->
+    <div id="userMessage" class="mx-auto" style="width: 400px;">Drag and drop your s2p file onto the page.<br/></div>
+    <div class="mx-auto" style="width: 200px;"><a href="https:\\poormantronics.com\quickplot-help.html" target="_blank">Need Help?</a><br/></div>
+    <div>
+      <form class="form-inline">
+        <input type="text" class="form-control col-sm-1" id="inputXmin" placeholder="X Min">
+        <input type="text" class="form-control col-sm-1" id="inputXmax" placeholder="X Max">
+      </form>
+      <button class="btn btn-primary" id="buttonXaxisUpdate">Change X Axis</button>
+    </div>
+  <!--  <div><button type="button" class="btn btn-info" id="buttonSettings" data-toggle="modal" data-target="#modalSettings">Settings</button></div> -->
+    <div id="spPlot"></div>
+    <div id="swrPlot"></div>
+    <div id="muPlot"></div>
+  </div>
+    <script>
+      // You can also require other files to run in this process
+      require('./renderer.js')
+      //require('./js/test.js')
+    </script>
+  </body>
+</html>
