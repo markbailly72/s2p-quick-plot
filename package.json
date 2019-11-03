@@ -7,9 +7,22 @@
   "license": "MIT",
   "private": false,
   "devDependencies": {
+    "electron": "^7.0.1",
     "electron-builder": "^22.1.0"
   },
   "dependencies": {
     "mathjs": "^6.2.3"
+  },
+  "build": {
+    "appId": "s2pQuickPlot",
+    "productName":"s2p Quick Plot",
+    "win": {
+      "target": "nsis"
+    }
+  },
+  "scripts": {
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "start":"electron ."
   }
 }
