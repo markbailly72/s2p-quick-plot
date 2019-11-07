@@ -319,3 +319,69 @@ document.getElementById('buttonXaxisUpdate').addEventListener('click', (e) => {
     console.log('X max and min must be positive numbers.');
   }
 });
+document.getElementById('buttonSPyaxisUpdate').addEventListener('click', (e) => {
+  //console.log($('#inputXmin').val());
+  let error = 'none';
+  let yMin, yMax;
+  if ($('#inputSPymin').val().match(/^-?[0-9]\d*(\.\d+)?$/) && $('#inputSPymax').val().match(/^-?[0-9]\d*(\.\d+)?$/)) {
+    if ($('#inputSPymin').val() < $('#inputSPymax').val()){
+      yMin = $('#inputSPymin').val();
+      yMax = $('#inputSPymax').val();
+      console.log('good');
+      var update = {
+        'yaxis.range': [yMin, yMax]   // updates the xaxis range
+      };
+      Plotly.relayout('spPlot', update)
+    }
+    else {
+      console.log('Max needs to be greater than minimum.');
+    }
+  }
+  else {
+    console.log('Y max and min must be numbers.');
+  }
+});
+document.getElementById('buttonVSWRyaxisUpdate').addEventListener('click', (e) => {
+  //console.log($('#inputXmin').val());
+  let error = 'none';
+  let yMin, yMax;
+  if ($('#inputVSWRymin').val().match(/^-?[0-9]\d*(\.\d+)?$/) && $('#inputVSWRymax').val().match(/^-?[0-9]\d*(\.\d+)?$/)) {
+    if ($('#inputVSWRymin').val() < $('#inputVSWRymax').val()){
+      yMin = $('#inputVSWRymin').val();
+      yMax = $('#inputVSWRymax').val();
+      console.log('good');
+      var update = {
+        'yaxis.range': [yMin, yMax]   // updates the xaxis range
+      };
+      Plotly.relayout('swrPlot', update)
+    }
+    else {
+      console.log('Max needs to be greater than minimum.');
+    }
+  }
+  else {
+    console.log('Y max and min must be numbers.');
+  }
+});
+document.getElementById('buttonMUyaxisUpdate').addEventListener('click', (e) => {
+  //console.log($('#inputXmin').val());
+  let error = 'none';
+  let yMin, yMax;
+  if ($('#inputMUymin').val().match(/^-?[0-9]\d*(\.\d+)?$/) && $('#inputMUymax').val().match(/^-?[0-9]\d*(\.\d+)?$/)) {
+    if ($('#inputMUymin').val() < $('#inputMUymax').val()){
+      yMin = $('#inputMUymin').val();
+      yMax = $('#inputMUymax').val();
+      console.log('good');
+      var update = {
+        'yaxis.range': [yMin, yMax]   // updates the xaxis range
+      };
+      Plotly.relayout('muPlot', update)
+    }
+    else {
+      console.log('Max needs to be greater than minimum.');
+    }
+  }
+  else {
+    console.log('Y max and min must be numbers.');
+  }
+});
