@@ -6,7 +6,7 @@ var dialog = app.dialog;
 var spjsonMsg = require("./js/sparameters-jsonfile.js");
 //let math = require('mathjs');
 //const parser = math.parser();
-const { complex, add, subtract, abs, conj, pow, divide, multiply, atan, sin, cos, sqrt, pi, equal, sort, format } = require('mathjs')
+const { complex, add, subtract, abs, conj, pow, divide, multiply, log, atan, sin, cos, sqrt, pi, equal, sort, format } = require('mathjs')
 //var Plotly = require("./js/plotly.js");
 //const pi = Math.PI;
 var thePath, spData;
@@ -131,10 +131,10 @@ document.addEventListener('drop', (e) => {
       //  console.log(freqArr);
 
         for (let i=0;i<spData.s21.length;i++) {
-          s21dbArr.push(parseFloat(spData.s21[i].a));
-          s12dbArr.push(parseFloat(spData.s12[i].a));
-          s11dbArr.push(parseFloat(spData.s11[i].a));
-          s22dbArr.push(parseFloat(spData.s22[i].a));
+        //  s21dbArr.push(parseFloat(spData.s21[i].a));
+        //  s12dbArr.push(parseFloat(spData.s12[i].a));
+      //    s11dbArr.push(parseFloat(spData.s11[i].a));
+        //  s22dbArr.push(parseFloat(spData.s22[i].a));
           /*mag11 = Math.pow(10,parseFloat(spData.s11[i].a)/20);
           mag22 = Math.pow(10,parseFloat(spData.s22[i].a)/20);
           mag21 = Math.pow(10,parseFloat(spData.s21[i].a)/20);
@@ -148,8 +148,12 @@ document.addEventListener('drop', (e) => {
             ang22 = spData.s22[i].b*pi/180;
             ang21 = spData.s21[i].b*pi/180;
             ang12 = spData.s12[i].b*pi/180;
+            s21dbArr.push(parseFloat(spData.s21[i].a));
+            s12dbArr.push(parseFloat(spData.s12[i].a));
+            s11dbArr.push(parseFloat(spData.s11[i].a));
+            s22dbArr.push(parseFloat(spData.s22[i].a));
           }
-          else if (spData.params.dataFormat.toLowerCase() == "mag") {
+          else if (spData.params.dataFormat.toLowerCase() == "ma") {
             mag11 = spData.s11[i].a;
             mag22 = spData.s22[i].a;
             mag21 = spData.s21[i].a;
@@ -158,6 +162,10 @@ document.addEventListener('drop', (e) => {
             ang22 = spData.s22[i].b*pi/180;
             ang21 = spData.s21[i].b*pi/180;
             ang12 = spData.s12[i].b*pi/180;
+            s11dbArr.push(multiply(20,log(mag11,10)));
+            s22dbArr.push(multiply(20,log(mag22,10)));
+            s21dbArr.push(multiply(20,log(mag21,10)));
+            s12dbArr.push(multiply(20,log(mag12,10)));
           }
           else if (spData.params.dataFormat.toLowerCase() == "ri") {
             mag11 = sqrt(add(pow(spData.s11[i].a,2),pow(spData.s11[i].b,2)));
@@ -168,6 +176,10 @@ document.addEventListener('drop', (e) => {
             ang22 = atan(divide(spData.s22[i].a,spData.s22[i].b));
             ang21 = atan(divide(spData.s21[i].a,spData.s21[i].b));
             ang12 = atan(divide(spData.s12[i].a,spData.s12[i].b));
+            s11dbArr.push(multiply(20,log(mag11,10)));
+            s22dbArr.push(multiply(20,log(mag22,10)));
+            s21dbArr.push(multiply(20,log(mag21,10)));
+            s12dbArr.push(multiply(20,log(mag12,10)));
           }
           s11 = complex({phi:ang11,r:mag11});
           s22 = complex({phi:ang22,r:mag22});
@@ -290,6 +302,10 @@ document.addEventListener('drop', (e) => {
         $('#userMessage').html(spResponse.fileError);
       }
     }
+    $("#rowButtonsMuY").removeClass('invisible');
+    $("#rowButtonsSwrY").removeClass('invisible');
+    $("#rowButtonsSpY").removeClass('invisible');
+    $("#rowButtonsX").removeClass('invisible');
 });
 document.addEventListener('dragover', (e) => {
   e.preventDefault();

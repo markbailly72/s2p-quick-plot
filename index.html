@@ -23,24 +23,24 @@
     <!-- All of the Node.js APIs are available in this renderer process. -->
     <div id="userMessage" class="mx-auto" style="width: 400px;">Drag and drop your s2p file onto the page.<br/></div>
     <div class="mx-auto" style="width: 200px;"><a href="https:\\poormantronics.com\quickplot-help.html" target="_blank">Need Help?</a><br/></div>
-    <div class="row">
+    <div id="rowButtonsX" class="row invisible">
       <input type="text" class="form-control col-md-1" id="inputXmin" placeholder="X Min">
       <input type="text" class="form-control col-md-1" id="inputXmax" placeholder="X Max">
       <button class="btn btn-primary col-md-2" id="buttonXaxisUpdate" data-toggle="tooltip" data-placement="bottom" title="Applies to All Plots">Change X Axis</button>
     </div>
-    <div class="row">
+    <div id="rowButtonsSpY" class="row invisible">
       <input type="text" class="form-control col-md-1" id="inputSPymin" placeholder="Y Min">
       <input type="text" class="form-control col-md-1" id="inputSPymax" placeholder="Y Max">
       <button class="btn btn-primary col-md-2" id="buttonSPyaxisUpdate" data-toggle="tooltip" data-placement="bottom" title="Applies to sp Plot Only">Change Y Axis</button>
     </div>
     <div class="row" id="spPlot"></div>
-    <div class="row">
+    <div id="rowButtonsSwrY"class="row invisible">
       <input type="text" class="form-control col-md-1" id="inputVSWRymin" placeholder="Y Min">
       <input type="text" class="form-control col-md-1" id="inputVSWRymax" placeholder="Y Max">
       <button class="btn btn-primary col-md-2" id="buttonVSWRyaxisUpdate" data-toggle="tooltip" data-placement="bottom" title="Applies to VSWR Plot Only">Change Y Axis</button>
     </div>
     <div class="row" id="swrPlot"></div>
-    <div class="row">
+    <div id="rowButtonsMuY" class="row invisible">
       <input type="text" class="form-control col-md-1" id="inputMUymin" placeholder="Y Min">
       <input type="text" class="form-control col-md-1" id="inputMUymax" placeholder="Y Max">
       <button class="btn btn-primary col-md-2" id="buttonMUyaxisUpdate" data-toggle="tooltip" data-placement="bottom" title="Applies to mu Plot Only">Change Y Axis</button>
