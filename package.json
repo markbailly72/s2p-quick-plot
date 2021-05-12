@@ -11,7 +11,7 @@
     "electron-builder": "^22.1.0"
   },
   "dependencies": {
-    "mathjs": "^6.2.3"
+    "mathjs": "^7.5.1"
   },
   "build": {
     "appId": "s2pQuickPlot",
